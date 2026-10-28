@@ -1,6 +1,407 @@
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: red;
-  border-radius: 8px;
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=BIZ+UDPMincho&family=Dela+Gothic+One&family=Nanum+Myeongjo&display=swap");
+
+.dela-gothic-one-regular {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.biz-udpmincho-regular {
+  font-family: "BIZ UDPMincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 배경 */
+body {
+  background-image: url("../assets/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 로고 */
+.logo {
+  display: block;
+  position: relative;
+  padding: 20px;
+  top: 70px;
+  z-index: 100;
+}
+
+/* 누끼 외곽선 반짝임 */
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+
+  filter: drop-shadow(0 0 5px rgba(0, 110, 255, 0.6));
+  animation: shine 2.5s infinite alternate ease-in-out;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* hover시 누끼 외곽선 반짝임 효과 */
+.logo-img:hover {
+  animation: shine-hover 1.5s infinite alternate ease-in-out;
+}
+
+/* 로고 반짝임 애니메이션 */
+@keyframes shine {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(13, 46, 88, 0.6))
+      drop-shadow(0 0 15px rgba(16, 100, 227, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(0, 110, 255, 0.6))
+      drop-shadow(0 0 25px rgba(0, 123, 255, 0.6)) brightness(1.1);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(13, 46, 88, 0.6))
+      drop-shadow(0 0 15px rgba(16, 100, 227, 0.35));
+  }
+}
+
+/* hover이후 로고 반짝임 애니메이션 */
+@keyframes shine-hover {
+  0% {
+    filter: drop-shadow(0 0 8px #fcfbfb)
+      drop-shadow(0 0 18px rgba(123, 255, 242, 0.924));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #fcfbfb) drop-shadow(0 0 30px #ff3d84)
+      drop-shadow(0 0 50px rgba(255, 0, 64, 0.7)) brightness(1.2);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px #fcfbfb)
+      drop-shadow(0 0 18px rgba(123, 255, 242, 0.924));
+  }
+}
+
+/* 나나 */
+.NANA-img {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+/* 패턴 / 대사 효과 */
+.pattern-left.hidden *,
+.pattern-right.hidden * {
+  opacity: 0;
+  pointer-events: none; /* 숨겨졌을 때 클릭 방지 */
+  transition: opacity 0.3s ease;
+}
+.pattern-left *,
+.pattern-right * {
+  transition: opacity 0.3s ease;
+}
+
+/* 패턴 / 대사 */
+.leftpattern1 {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 10;
+}
+.leftpattern2 {
+  position: absolute;
+  top: 0px;
+  left: 250px;
+  z-index: 10;
+}
+.leftpattern3 {
+  position: absolute;
+  bottom: 20px;
+  left: 250px;
+  z-index: 10;
+}
+.rightpattern1 {
+  position: absolute;
+  top: 0px;
+  right: -20px;
+  z-index: 10;
+}
+.rightpattern2 {
+  position: absolute;
+  bottom: 320px;
+  right: 380px;
+  z-index: 10;
+}
+.lefttext {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  font-family: "BIZ UDPMincho", serif;
+  color: #cfc6eb;
+  position: absolute;
+  top: 280px;
+  left: 370px;
+  z-index: 10;
+}
+.righttext {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  font-family: "BIZ UDPMincho", serif;
+  color: #cfc6eb;
+  position: absolute;
+  top: 360px;
+  right: 410px;
+  z-index: 10;
+}
+
+/* 나나 배경 */
+.NANA1-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  z-index: 10;
+}
+
+/* 왼쪽으로 마우스 */
+.bg-left {
+  background-image: url("../assets/HACHI.png");
+}
+
+/* 오른쪽으로 마우스*/
+.bg-right {
+  background-image: url("../assets/NANA.png");
+}
+
+/* 눈 */
+.snow {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: calc(100vw + 100px);
+  height: calc(100vh + 200px);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* 뒷쪽 눈 */
+.snow-back {
+  z-index: 1;
+  opacity: 0.45;
+  filter: blur(2px);
+  background-image:
+    radial-gradient(4px 4px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(6px 6px at 100px 150px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(5px 5px at 320px 300px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(6px 6px at 400px 220px, #ffffff, rgba(0, 0, 0, 0));
+  background-size: 500px 500px;
+  animation: fall-and-swing-back 10s linear infinite;
+}
+
+/* 앞쪽 눈 */
+.snow-front {
+  z-index: 99;
+  opacity: 0.85;
+  filter: blur(0.5px);
+  background-image:
+    radial-gradient(8px 8px at 40px 80px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(12px 12px at 310px 390px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(10px 10px at 450px 240px, #ffffff, rgba(0, 0, 0, 0));
+  background-size: 400px 400px;
+  animation: fall-and-swing-front 6s linear infinite;
+}
+
+@keyframes fall-and-swing-back {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    /* 오른쪽으로 살짝 이동 */
+    transform: translateY(250px) translateX(25px);
+  }
+  100% {
+    transform: translateY(500px) translateX(0);
+  }
+}
+
+@keyframes fall-and-swing-front {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    /* 왼쪽으로 살짝 이동 */
+    transform: translateY(200px) translateX(-35px);
+  }
+  100% {
+    transform: translateY(400px) translateX(0);
+  }
+}
+
+/* 블라스트 */
+.blast-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  pointer-events: none;
+  z-index: 80;
+}
+
+.slice {
+  flex: 1;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  /* 빠른 등장 후 느려지는 cubic-bezier  */
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+.slice1 {
+  background-image: url("../assets/LOGOyasushi.png");
+}
+.slice2 {
+  background-image: url("../assets/LOGOnana.png");
+}
+.slice3 {
+  background-image: url("../assets/LOGOshinichi.png");
+}
+.slice4 {
+  background-image: url("../assets/LOGOnobuo.png");
+}
+
+.slice-bottom {
+  transform: translateY(100%);
+}
+
+.slice-top {
+  transform: translateY(-100%);
+}
+
+.blast-img.active .slice {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 포스터 내용 */
+.poster-txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.5s ease,
+    visibility 0.5s;
+  transition-delay: 0s;
+}
+
+.poster-txt.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  transition-delay: 0.3s;
+}
+
+.common {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  -webkit-text-stroke: 1px #ef2c81;
+  color: black;
+  position: absolute;
+  z-index: 90;
+}
+.production {
+  font-size: 36px;
+  top: 50px;
+  left: 65px;
+}
+.from {
+  font-size: 36px;
+  top: 50px;
+  left: 480px;
+}
+.dash {
+  width: 370px;
+  height: 6px;
+  background-color: black;
+  outline: 1px solid #ef2c81;
+  top: 67px;
+  right: 350px;
+  position: absolute;
+  z-index: 90;
+}
+.to {
+  font-size: 36px;
+  top: 50px;
+  right: 50px;
+  text-align: right;
+}
+.originalen {
+  font-size: 20px;
+  bottom: 90px;
+  left: 65px;
+}
+.originaljp {
+  font-size: 36px;
+  bottom: 50px;
+  left: 65px;
+}
+.directeden {
+  font-size: 20px;
+  bottom: 90px;
+  left: 65px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.directedjp {
+  font-size: 36px;
+  bottom: 50px;
+  left: 65px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.musicen {
+  font-size: 20px;
+  bottom: 90px;
+  right: 65px;
+  text-align: right;
+}
+.musicjp {
+  font-size: 36px;
+  bottom: 50px;
+  right: 65px;
+  text-align: right;
 }

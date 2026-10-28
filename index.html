@@ -4,17 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- 1. Reset CSS : 브라우저 기본 스타일 초기화 -->
     <link rel="stylesheet" href="./style/reset.css" />
+    <!-- 2. Main CSS : 우리가 작성한 디자인 적용 -->
     <link rel="stylesheet" href="./style/style.css" />
+    <!-- 3. jQuery Library : jQuery CDN 연결-->
     <script
       src="https://code.jquery.com/jquery-4.0.0.min.js"
       integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
       crossorigin="anonymous"
     ></script>
+    <!-- 4. My JavaScript : 우리가 작성한 스크립트 코드 연결 -->
     <script src="./js/script.js" defer></script>
   </head>
   <body>
-    <div id="status"></div>
-    <div class="box"></div>
+    <!-- 로고 -->
+    <div class="logo">
+      <img class="logo-img" src="./assets/Logo.png" id="shineImg" />
+    </div>
+
+    <!-- 나나,하치 -->
+    <img class="NANA-img" src="./assets/twonana.png" />
+
+    <!-- 패턴 / 대사 -->
+    <div class="pattern-left">
+      <img class="leftpattern1" src="./assets/leftpattern1.png" />
+      <img class="leftpattern2" src="./assets/leftpattern2.png" />
+      <img class="leftpattern3" src="./assets/leftpattern3.png" />
+      <div class="lefttext">
+        もし今、みんなにもう一度会えたら、<br />私はきっとまた甘えてしまう。<br />
+        それが怖くて、ここから動けない。
+      </div>
+    </div>
+    <div class="pattern-right">
+      <img class="rightpattern1" src="./assets/rightpattern1.png" />
+      <img class="rightpattern2" src="./assets/rightpattern2.png" />
+      <div class="righttext">
+        ねえ|ナナ、<br />今年もまた多摩川に真夏の花が咲くん。<br />707号室でみんなで待ってるよ。
+      </div>
+    </div>
+
+    <!-- 나나 -->
+    <div class="NANA1-img bg-left"></div>
+    <!-- 하치 -->
+    <div class="NANA1-img bg-right"></div>
+
+    <!-- 눈 -->
+    <div class="snow snow-back"></div>
+    <div class="snow snow-front"></div>
+
+    <!-- 블라스트 -->
+    <div class="blast-img" id="blastImg">
+      <div class="slice slice1 slice-bottom"></div>
+      <div class="slice slice2 slice-top"></div>
+      <div class="slice slice3 slice-bottom"></div>
+      <div class="slice slice4 slice-top"></div>
+    </div>
+
+    <div class="poster-txt">
+      <div class="production common">株式会社マッドハウス</div>
+      <div class="from common">2006.04.05.</div>
+      <div class="dash"></div>
+      <div class="to common">2007.03.29.</div>
+      <div class="originalen common">ORIGINAL STORY BY</div>
+      <div class="originaljp common">矢沢あい</div>
+      <div class="directeden common">DIRECTED BY</div>
+      <div class="directedjp common">浅香守生</div>
+      <div class="musicen common">MUSIC BY</div>
+      <div class="musicjp common">長谷川智樹</div>
+    </div>
   </body>
 </html>
